@@ -2,15 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 body {
     font-family: "Protest Revolution", sans-serif;
     font-weight: 400;
     font-style: normal;
+    background-color:  rgba(0, 229, 255, 0.5), ;
+}
+.heading {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 229, 255, 0.1),
+        rgba(4, 60, 79, 0.5)
+      ), url("../images/money-bg.jpg");
+    height: 400px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 
   
