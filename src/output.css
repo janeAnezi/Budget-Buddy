@@ -544,6 +544,40 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .flex {
   display: flex;
 }
@@ -562,11 +596,6 @@ video {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.py-2 {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -579,6 +608,11 @@ video {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-green-600 {
@@ -600,7 +634,8 @@ body {
   font-family: "Protest Revolution", sans-serif;
   font-weight: 400;
   font-style: normal;
-  background-color:  rgba(0, 229, 255, 0.5), ;
+  height: 100vh;
+  position: relative;
 }
 
 .heading {
@@ -614,5 +649,25 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.right {
+  float:right;
+}
+
+.red {
+  color: #ff5049 !important;
+}
+
+.red-focus:focus {
+  border: 1px solid #ff5049 !important;
+}
+
+/* top */
 
   
