@@ -17,16 +17,30 @@ var  UIcontroller = (function(){
     
     return {
         getinput: function() {
-            var type = document.querySelector('.add-type').value
+            return {
+             type: document.querySelector('.add-type').value, // will either be inc or exp
+             description: document.querySelector('.add-description').value,
+             value: document.querySelector('.add-value').value
+            }
         }
     }
 })();
 
-// Global Controller
-var controller = (function(bgtCntrl, uiCntrl) {
-   document.querySelector('.add-btn').addEventListener('click', function() {
-    console.log('Button Clicked!.');
-    
-   });
+// Global APP Controller
+var controller = (function(budgetCtrl, UICtrl) {
+    var ctrlAddItem = function() {
+        // get field input
+        // add item to  budget controller
+        // add item to UI
+        // calculate budget on UI
+        console.log('IT WORKS!!');
+    }
+    document.querySelector('add-btn').addEventListener('click', ctrlAddItem);
+    document.addEventListener( 'keypress', function(event){
+        if( event.key === 13 ){
+            ctrlAddItem();
+        }
+    })
+
     
 })(budgetController, UIcontroller);
