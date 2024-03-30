@@ -9,7 +9,7 @@
 // Budget Controller
 var budgetController = (function() {
     
-})();
+})()
 
 
 // UI Controller
@@ -24,7 +24,7 @@ var  UIcontroller = (function(){
             }
         }
     }
-})();
+})()
 
 // Global APP Controller
 var controller = (function(budgetCtrl, UICtrl) {
@@ -46,4 +46,4 @@ var controller = (function(budgetCtrl, UICtrl) {
     })
 
     
-})(budgetController, UIcontroller);
+})()
