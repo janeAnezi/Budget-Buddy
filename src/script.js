@@ -14,13 +14,19 @@ var budgetController = (function() {
 
 // UI Controller
 var  UIcontroller = (function(){
-    //some code
+    
+    return {
+        getinput: function() {
+            var type = document.querySelector('.add-type').value
+        }
+    }
 })();
 
 // Global Controller
 var controller = (function(bgtCntrl, uiCntrl) {
-    document.querySelector('.add-btn').addEventListener('click', function() {
-        console.log('This button was clicked');
-    })
-
+   document.querySelector('.add-btn').addEventListener('click', function() {
+    console.log('Button Clicked!.');
+    
+   });
+    
 })(budgetController, UIcontroller);
