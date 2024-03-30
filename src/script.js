@@ -16,7 +16,7 @@ var budgetController = (function() {
 var  UIcontroller = (function(){
     
     return {
-        getinput: function() {
+        getInput: function() {
             return {
              type: document.querySelector('.add-type').value, // will either be inc or exp
              description: document.querySelector('.add-description').value,
@@ -30,14 +30,17 @@ var  UIcontroller = (function(){
 var controller = (function(budgetCtrl, UICtrl) {
     var ctrlAddItem = function() {
         // get field input
+        var input = UICtrl.getInput()
+        console.log(input);
+
         // add item to  budget controller
         // add item to UI
         // calculate budget on UI
-        console.log('IT WORKS!!');
+
     }
-    document.querySelector('add-btn').addEventListener('click', ctrlAddItem);
+    document.querySelector('.add-btn').addEventListener('click', ctrlAddItem);
     document.addEventListener( 'keypress', function(event){
-        if( event.key === 13 ){
+        if( event.key == 'Enter' ) {
             ctrlAddItem();
         }
     })
