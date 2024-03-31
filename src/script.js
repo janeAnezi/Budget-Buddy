@@ -7,13 +7,13 @@
 
 
 // Budget Controller
-var budgetController = (function() {
+let budgetController = (function() {
     
 })()
 
 
 // UI Controller
-var  UIcontroller = (function(){
+let  UIcontroller = (function(){
     
     return {
         getInput: function() {
@@ -27,10 +27,10 @@ var  UIcontroller = (function(){
 })()
 
 // Global APP Controller
-var controller = (function(budgetCtrl, UICtrl) {
-    var ctrlAddItem = function() {
+let controller = (function(budgetCtrl, UICtrl) {
+    let ctrlAddItem = function() {
         // get field input
-        var input = UICtrl.getInput()
+        let input = UICtrl.getInput()
         console.log(input);
 
         // add item to  budget controller
@@ -46,4 +46,4 @@ var controller = (function(budgetCtrl, UICtrl) {
     })
 
     
-})(budgetCtrl, UICtrl)
+})()
