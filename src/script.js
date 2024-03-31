@@ -21,7 +21,7 @@ var  UIcontroller = (function(){
              type: document.querySelector('.add-type').value, // will either be inc or exp
              description: document.querySelector('.add-description').value,
              value: document.querySelector('.add-value').value
-            }
+            }; 
         }
     }
 })()
@@ -40,10 +40,10 @@ var controller = (function(budgetCtrl, UICtrl) {
     }
     document.querySelector('.add-btn').addEventListener('click', ctrlAddItem);
     document.addEventListener( 'keypress', function(event){
-        if( event.key == 'Enter' ) {
+        if( event.key === 'Enter' || event.key === 13 ) {
             ctrlAddItem();
         }
     })
 
     
-})()
+})(budgetCtrl, UICtrl)
