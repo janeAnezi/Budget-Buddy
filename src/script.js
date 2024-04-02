@@ -19,7 +19,7 @@ let  UIcontroller = (function(){
             return {
              type: document.querySelector('.add-type').value, // will either be inc or exp
              description: document.querySelector('.add-description').value,
-             value: parseFloat(document.querySelector('.add-value').value)
+             value: document.querySelector('.add-value').value
             }; 
         }
     }
