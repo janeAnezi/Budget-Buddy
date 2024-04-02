@@ -27,12 +27,16 @@ let  UIcontroller = (function(){
              description: document.querySelector(DOMstrings.description).value,
              value: document.querySelector(DOMstrings.inputValue).value
             }; 
+        },
+        getDOMstrings:  () => {
+            return DOMstrings;
         }
     }
 })()
 
 // Global APP Controller
 let controller = (function(budgetCtrl, UICtrl) {
+    let DOM = UICtrl.getDOMstrings()
     let ctrlAddItem = function() {
         // get field input
         let input = UICtrl.getInput();
@@ -42,7 +46,7 @@ let controller = (function(budgetCtrl, UICtrl) {
         // calculate budget on UI
         
     }
-    document.querySelector(DOMstrings.addButton).addEventListener('click', ctrlAddItem);
+    document.querySelector(DOM.addButton).addEventListener('click', ctrlAddItem);
     document.addEventListener( 'keypress', function(event){
         if( event.key === 'Enter' || event.key === 13 ) {
             ctrlAddItem();
