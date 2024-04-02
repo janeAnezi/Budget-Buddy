@@ -14,12 +14,18 @@ let budgetController = (function() {
 
 // UI Controller
 let  UIcontroller = (function(){
+    let  DOMstrings = {
+        selectType: '.add-type',
+        description: '.add-description',
+        inputValue: '.add-value',
+        addButton: '.add-btn'
+    }
     return {
         getInput: function() {
             return {
-             type: document.querySelector('.add-type').value, // will either be inc or exp
-             description: document.querySelector('.add-description').value,
-             value: document.querySelector('.add-value').value
+             type: document.querySelector(DOMstrings.selectType).value, // will either be inc or exp
+             description: document.querySelector(DOMstrings.description).value,
+             value: document.querySelector(DOMstrings.inputValue).value
             }; 
         }
     }
@@ -36,7 +42,7 @@ let controller = (function(budgetCtrl, UICtrl) {
         // calculate budget on UI
         
     }
-    document.querySelector('.add-btn').addEventListener('click', ctrlAddItem);
+    document.querySelector(DOMstrings.addButton).addEventListener('click', ctrlAddItem);
     document.addEventListener( 'keypress', function(event){
         if( event.key === 'Enter' || event.key === 13 ) {
             ctrlAddItem();
