@@ -36,7 +36,16 @@ let  UIcontroller = (function(){
 
 // Global APP Controller
 let controller = (function(budgetCtrl, UICtrl) {
-    let DOM = UICtrl.getDOMstrings()
+    var setupEventListeners = function(){
+        let DOM = UICtrl.getDOMstrings()
+        document.querySelector(DOM.addButton).addEventListener('click', ctrlAddItem);
+        document.addEventListener( 'keypress', function(event){
+            if( event.key === 'Enter' || event.key === 13 ) {
+                ctrlAddItem();
+            }
+        })
+    }
+    
     let ctrlAddItem = function() {
         // get field input
         let input = UICtrl.getInput();
@@ -46,12 +55,5 @@ let controller = (function(budgetCtrl, UICtrl) {
         // calculate budget on UI
         
     }
-    document.querySelector(DOM.addButton).addEventListener('click', ctrlAddItem);
-    document.addEventListener( 'keypress', function(event){
-        if( event.key === 'Enter' || event.key === 13 ) {
-            ctrlAddItem();
-        }
-    })
 
-    
 })(budgetController, UIcontroller)
