@@ -56,4 +56,12 @@ let controller = (function(budgetCtrl, UICtrl) {
         
     }
 
+    return {
+        init: () => {
+            console.log('Application has started....')
+            setupEventListeners()
+        }
+    }
 })(budgetController, UIcontroller)
+
+controller.init()
