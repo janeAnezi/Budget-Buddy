@@ -8,7 +8,16 @@
 
 // Budget Controller
 let budgetController = (function() {
-    
+    let Expenses = function (id, description, value) {
+        this.id = id
+        this.description = description
+        this.value = value
+    }
+    let Income = function (id, description, value) {
+        this.id = id
+        this.description = description
+        this.value = value
+    }
 })()
 
 
@@ -36,7 +45,7 @@ let  UIcontroller = (function(){
 
 // Global APP Controller
 let controller = (function(budgetCtrl, UICtrl) {
-    var setupEventListeners = function(){
+    var setupEventListeners = () => {
         let DOM = UICtrl.getDOMstrings()
         document.querySelector(DOM.addButton).addEventListener('click', ctrlAddItem);
         document.addEventListener( 'keypress', function(event){
@@ -46,10 +55,9 @@ let controller = (function(budgetCtrl, UICtrl) {
         })
     }
     
-    let ctrlAddItem = function() {
+    let ctrlAddItem = () => {
         // get field input
         let input = UICtrl.getInput();
-            console.log(input);
         // add item to  budget controller
         // add item to UI
         // calculate budget on UI
