@@ -37,8 +37,11 @@ let budgetController = (function() {
             let dataType = data.allItems[type]
 
             // create new id
-            ID = dataType[dataType.length - 1].id + 1
-
+            if(dataType.length > 0) {
+                ID = dataType[dataType.length - 1].id + 1
+            } else {
+                ID = 0 
+            }
             //  Create new item based on inc or exp
             if(type === 'exp') {
                 newItem = new  Expenses(ID, des, val);
@@ -49,6 +52,9 @@ let budgetController = (function() {
 
             // return  the new element
             return newItem
+        },
+        testing: () => {
+            console.log(data)
         }
     }
 })()
@@ -89,9 +95,11 @@ let controller = (function(budgetCtrl, UICtrl) {
     }
     
     let ctrlAddItem = () => {
+        let input, newItem;
         // get field input
-        let input = UICtrl.getInput();
+        input = UICtrl.getInput();
         // add item to  budget controller
+        newItem = budgetCtrl.addItem(input.type, input.description, input.value)
         // add item to UI
         // calculate budget on UI
         
