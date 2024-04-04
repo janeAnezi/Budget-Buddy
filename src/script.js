@@ -32,12 +32,23 @@ let budgetController = (function() {
 
     return {
         addItem: function(type, des, val){
-            let newItem;
+            let newItem, ID;
+            //data.allItems[type] is an array where we will store our objects either income or expense
+            let dataType = data.allItems[type]
+
+            // create new id
+            ID = dataType[dataType.length - 1].id + 1
+
+            //  Create new item based on inc or exp
             if(type === 'exp') {
                 newItem = new  Expenses(ID, des, val);
             } else if( type === 'inc'){
                 newItem = new  Expenses(ID, des, val);
             }
+            dataType.push(newItem)
+
+            // return  the new element
+            return newItem
         }
     }
 })()
