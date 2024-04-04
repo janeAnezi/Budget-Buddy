@@ -27,6 +27,17 @@ let budgetController = (function() {
             exp: 0,
             inc: 0
         }
+        
+    }
+
+    return {
+        addItem: function(type, des, val){
+            let newItem;
+            if(type === 'exp') {
+                newItem = new  Expenses(ID, des, val);
+            } else if( type === 'inc'){
+                newItem = new  Expenses(ID, des, val);
+            }
         }
     }
 })()
