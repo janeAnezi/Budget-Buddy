@@ -44,9 +44,9 @@ let budgetController = (function() {
             }
             //  Create new item based on inc or exp
             if(type === 'exp') {
-                newItem = new  Expenses(ID, des, val);
+                newItem = new  Expenses (ID, des, val);
             } else if( type === 'inc'){
-                newItem = new  Expenses(ID, des, val);
+                newItem = new  Income (ID, des, val);
             }
             dataType.push(newItem)
 
