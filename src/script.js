@@ -76,6 +76,12 @@ let  UIcontroller = (function(){
              value: document.querySelector(DOMstrings.inputValue).value
             }; 
         },
+        addListItem: function(obj, type){
+            // create HTML strings with placeholder text for the amount and date to be filled
+            // replace the placeholder text with actual data
+            // insert the HTML into DOM
+
+        },
         getDOMstrings:  () => {
             return DOMstrings;
         }
