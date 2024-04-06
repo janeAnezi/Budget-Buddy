@@ -79,7 +79,8 @@ let  UIcontroller = (function(){
         addListItem: function(obj, type){
             var html;
             // create HTML strings with placeholder text for the amount and date to be filled
-            html = '<div class="item clearfix" id="income-0"><div class="item-description">Salary</div><div class="right clearfix"><div class="item-value">+ 2,100.00</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>'
+            html = '<div class="item clearfix" id="income-0"><div class="item-description">Salary</div><div class="right clearfix"><div class="item-value">+ 2,100.00</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
+            html = '<div class="item clearfix" id="Expenses-0"><div class="item-description">Apartment rent</div><div class="right clearfix"><div class="item-value">- 900.00</div><div class="item-percentage">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>'
             // replace the placeholder text with actual data
             // insert the HTML into DOM
 
