@@ -80,9 +80,9 @@ let  UIcontroller = (function(){
             var html;
             // create HTML strings with placeholder text for the inc and exp to be filled
             if (type === 'inc') {
-                html = '<div class="item clearfix" id="income%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
+                html = '<div class="item clearfix" id="income-%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
             } else if (type ===  'exp') {
-                html = '<div class="item clearfix" id="Expenses%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-percentage">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>'
+                html = '<div class="item clearfix" id="Expenses-%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-percentage">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>'
             }
             // replace the placeholder text with actual data
             // insert the HTML into DOM
