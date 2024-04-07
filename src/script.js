@@ -77,7 +77,7 @@ let  UIcontroller = (function(){
             }; 
         },
         addListItem: function(obj, type){
-            var html;
+            var html, newHtml;
             // create HTML strings with placeholder text for the inc and exp to be filled
             if (type === 'inc') {
                 html = '<div class="item clearfix" id="income-%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
@@ -85,6 +85,9 @@ let  UIcontroller = (function(){
                 html = '<div class="item clearfix" id="Expenses-%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-percentage">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>'
             }
             // replace the placeholder text with actual data
+            newHtml = html.replace('%id%', obj.id)
+            newHtml = html.replace('%description%', obj.description)
+            newHtml = html.replace('%value%', obj.value)
             // insert the HTML into DOM
 
         },
