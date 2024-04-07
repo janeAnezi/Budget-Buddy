@@ -66,7 +66,10 @@ let  UIcontroller = (function(){
         selectType: '.add-type',
         description: '.add-description',
         inputValue: '.add-value',
-        addButton: '.add-btn'
+        addButton: '.add-btn',
+        incomeContainer: '.income-list',
+        expensesContainer: '.expenses-list'
+
     }
     return {
         getInput: function() {
