@@ -84,7 +84,6 @@ let  UIcontroller = (function(){
             // create HTML strings with placeholder text for the inc and exp to be filled
             if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
-
                 html = '<div class="item clearfix" id="income-%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
             } else if (type ===  'exp') {
                 element = DOMstrings.expensesContainer;
@@ -95,7 +94,7 @@ let  UIcontroller = (function(){
             newHtml = html.replace('%description%', obj.description)
             newHtml = html.replace('%value%', obj.value)
             // insert the HTML into DOM
-            document.querySelector(element);
+            document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
         },
         getDOMstrings:  () => {
             return DOMstrings;
@@ -122,6 +121,7 @@ let controller = (function(budgetCtrl, UICtrl) {
         // add item to  budget controller
         newItem = budgetCtrl.addItem(input.type, input.description, input.value)
         // add item to UI
+        UICtrl.addListItem(newItem, input.type);
         // calculate budget on UI
         
     }
