@@ -72,10 +72,10 @@ let UIcontroller = (function(){
 
             if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
-                html = '<div class="item clearfix flex justify-between border" id="income-%id%"><div class="item-description">%description%</div><div class="right clearfix flex"><div class="item-value">%value%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
+                html = '<div class="item clearfix flex justify-between border p-2" id="income-%id%"><div class="item-description mx-3">%description%</div><div class="right clearfix flex "><div class="item-value">%value%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
             } else if (type ===  'exp') {
                 element = DOMstrings.expensesContainer;
-                html = '<div class="item clearfix flex justify-between border" id="Expenses-%id%"><div class="item-description">%description%</div><div class="right clearfix flex"><div class="item-value">%value%</div><div class="item-percentage">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
+                html = '<div class="item clearfix flex justify-between border p-2" id="Expenses-%id%"><div class="item-description mx-3">%description%</div><div class="right clearfix flex "><div class="item-value">%value%</div><div class="item-percentage">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
             }
 
             newHtml = html.replace('%id%', obj.id);
@@ -94,6 +94,7 @@ let UIcontroller = (function(){
             fieldArray.forEach(function(current, index, array) {
                 current.value = "";
             });
+            fieldArray[0].focus();
         },
 
         getDOMstrings:  () => {
