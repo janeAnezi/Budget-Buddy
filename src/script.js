@@ -1,23 +1,15 @@
-// * Using Module pattern, to keep peaces of code that are related to one another
-//      together inside of separate, independent organised unit and encapsulated.
-//      This is  a way to hide the internal implementation details from other parts of your program.
-// * Private and public data, encapsulation and separation of conserns (meaning each part of 
-//    the application is seperated in doing one thing independently)
-// * Set up event listeners for keypress events and use event object
-
-
 // Budget Controller
 let budgetController = (function() {
-    let Expenses = function (id, description, value) {
-        this.id = id
-        this.description = description
-        this.value = value
-    }
-    let Income = function (id, description, value) {
-        this.id = id
-        this.description = description
-        this.value = value
-    }
+    let Expenses = function(id, description, value) {
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
+    let Income = function(id, description, value) {
+        this.id = id;
+        this.description = description;
+        this.value = value;
+    };
     let data = {
         allItems: {
             exp: [],
@@ -28,72 +20,68 @@ let budgetController = (function() {
             inc: 0
         }
         
-    }
+    };
 
     return {
-        addItem: function(type, des, val){
+        addItem: function(type, des, val) {
             let newItem, ID;
-            //data.allItems[type] is an array where we will store our objects either income or expense
-            let dataType = data.allItems[type]
+            let dataType = data.allItems[type];
 
-            // create new id
             if(dataType.length > 0) {
-                ID = dataType[dataType.length - 1].id + 1
+                ID = dataType[dataType.length - 1].id + 1;
             } else {
-                ID = 0 
+                ID = 0;
             }
-            //  Create new item based on inc or exp
             if(type === 'exp') {
-                newItem = new  Expenses (ID, des, val);
-            } else if( type === 'inc'){
-                newItem = new  Income (ID, des, val);
+                newItem = new Expenses(ID, des, val);
+            } else if(type === 'inc') {
+                newItem = new Income(ID, des, val);
             }
-            dataType.push(newItem)
+            dataType.push(newItem);
 
-            // return  the new element
-            return newItem
+            return newItem;
         },
         testing: () => {
-            console.log(data)
+            console.log(data);
         }
-    }
-})()
+    };
+})();
 
 
 // UI Controller
-let  UIcontroller = (function(){
-    let  DOMstrings = {
-        selectType: '.add-type',
-        description: '.add-description',
+let UIcontroller = (function(){
+    let DOMstrings = {
+        inputType: '.add-type',
+        inputDescription: '.add-description',
         inputValue: '.add-value',
-        addButton: '.add-btn',
+        inputBtn: '.add-btn',
         incomeContainer: '.income-list',
         expensesContainer: '.expenses-list'
 
-    }
+    };
     return {
         getInput: function() {
             return {
-             type: document.querySelector(DOMstrings.selectType).value, // will either be inc or exp
-             description: document.querySelector(DOMstrings.description).value,
-             value: document.querySelector(DOMstrings.inputValue).value
+                type: document.querySelector(DOMstrings.inputType).value,
+                description: document.querySelector(DOMstrings.inputDescription).value,
+                value: document.querySelector(DOMstrings.inputValue).value
             }; 
         },
-        addListItem: function(obj, type){
-            var html, newHtml, element;
-            // create HTML strings with placeholder text for the inc and exp to be filled
+        addListItem: function(obj, type) {
+            let html, newHtml, element;
+
             if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
                 html = '<div class="item clearfix" id="income-%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
             } else if (type ===  'exp') {
                 element = DOMstrings.expensesContainer;
-                html = '<div class="item clearfix" id="Expenses-%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-percentage">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>'
+                html = '<div class="item clearfix" id="Expenses-%id%"><div class="item-description">%description%</div><div class="right clearfix"><div class="item-value">%value%</div><div class="item-percentage">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon name="trash-outline"></ion-icon></button></div></div></div>';
             }
-            // replace the placeholder text with actual data
-            newHtml = html.replace('%id%', obj.id)
-            newHtml = html.replace('%description%', obj.description)
-            newHtml = html.replace('%value%', obj.value)
-            // insert the HTML into DOM
+
+            newHtml = html.replace('%id%', obj.id);
+            newHtml = newHtml.replace('%description%', obj.description);
+            newHtml = newHtml.replace('%value%', obj.value);
+
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
         },
 
@@ -103,7 +91,7 @@ let  UIcontroller = (function(){
             fields = document.querySelectorAll(DOMstrings.inputDescription + ',' + DOMstrings.inputValue);
             fieldArray = Array.prototype.slice.call(fields);
 
-            fieldArray.array.forEach(function(current,index, array ) {
+            fieldArray.forEach(function(current, index, array) {
                 current.value = "";
             });
         },
@@ -111,42 +99,35 @@ let  UIcontroller = (function(){
         getDOMstrings:  () => {
             return DOMstrings;
         }
-    }
+    };
 })()
 
 // Global APP Controller
 let controller = (function(budgetCtrl, UICtrl) {
-    var setupEventListeners = () => {
-        let DOM = UICtrl.getDOMstrings()
-        document.querySelector(DOM.addButton).addEventListener('click', ctrlAddItem);
-        document.addEventListener( 'keypress', function(event){
+    let setupEventListeners = () => {
+        let DOM = UICtrl.getDOMstrings();
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+        document.addEventListener( 'keypress', function(event) {
             if( event.key === 'Enter' || event.key === 13 ) {
                 ctrlAddItem();
             }
-        })
-    }
+        });
+    };
     
     let ctrlAddItem = () => {
         let input, newItem;
-        // get field input
         input = UICtrl.getInput();
-        // add item to  budget controller
-        newItem = budgetCtrl.addItem(input.type, input.description, input.value)
-        // add item to UI
+        newItem = budgetCtrl.addItem(input.type, input.description, input.value);
         UICtrl.addListItem(newItem, input.type);
-        // for clear the fields
         UICtrl.clearFields();
-
-        // calculate budget on UI
-        
-    }
+    };
 
     return {
         init: () => {
-            console.log('Application has started....')
-            setupEventListeners()
+            console.log('Application has started....');
+            setupEventListeners();
         }
-    }
-})(budgetController, UIcontroller)
+    };
+})(budgetController, UIcontroller);
 
-controller.init()
+controller.init();
