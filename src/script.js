@@ -192,8 +192,8 @@ let controller = (function(budgetCtrl, UICtrl) {
             UICtrl.displayBudget({
                 budget: 0,
                 totalInc: 0,
-                totalExp: data.totals.exp,
-                percentage: data.percentage
+                totalExp: 0,
+                percentage: -1
             });
             setupEventListeners();
         }
