@@ -202,12 +202,14 @@ let controller = (function(budgetCtrl, UICtrl) {
         if  (itemID) {
             splitID = itemID.split("-");
             type = splitID[0];
-            ID = splitID[1];
-            
+            ID = parseInt(splitID[1]);
             // delete from data structure
             budgetCtrl.deleteItem(type, ID);
+            // Update budget and UI
+            updateBudget();
         }
     };
+    
 
     return {
         init: () => {
