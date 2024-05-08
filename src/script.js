@@ -104,7 +104,8 @@ let UIcontroller = (function(){
         budgetValue: '.budget-value',
         incomeValue: '.budget-income-value',
         expensesValue: '.budget-expenses-value',
-        percentegeValue: '.budget-expenses-percentage'
+        percentegeValue: '.budget-expenses-percentage',
+        container: '.container'
 
     };
     return {
@@ -166,12 +167,16 @@ let UIcontroller = (function(){
 let controller = (function(budgetCtrl, UICtrl) {
     let setupEventListeners = () => {
         let DOM = UICtrl.getDOMstrings();
+
         document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+
         document.addEventListener( 'keypress', function(event) {
             if( event.key === 'Enter' || event.key === 13 ) {
                 ctrlAddItem();
             }
         });
+
+        document.querySelector(DOM.container).addEventListener('click',ctrlDeleteItem);
     };
     
     let updateBudget = function() {
@@ -226,3 +231,4 @@ let controller = (function(budgetCtrl, UICtrl) {
 })(budgetController, UIcontroller);
 
 controller.init();
+ 
