@@ -52,24 +52,21 @@ let budgetController = (function() {
             return newItem;
         },
         deleteItem: function(type, id) {
-            if (data.allItems[type]) { // Check if data.allItems[type] is defined
-                let ids, index;
-                ids = data.allItems[type].map(function(current) {
-                    return current.id;
-                });
-        
-                index = ids.indexOf(id);
-        
-                if (index !== -1) {
-                    data.allItems[type].splice(index, 1);
-                } else {
-                    console.error('Item with ID ' + id + ' not found in type ' + type);
-                }
-            } else {
+            if (!data.allItems[type]) {
                 console.error('Type ' + type + ' not found in data.allItems');
+                return;
+            }
+            
+            const ids = data.allItems[type].map(item => item.id);
+            const index = ids.indexOf(id);
+        
+            if (index === -1) {
+                console.error('Item with ID ' + id + ' not found in type ' + type);
+            } else {
+                data.allItems[type].splice(index, 1);
             }
         },
-
+        
         calculateBudget: function() {
             // calculate total income and expenses
             calculateTotal('exp');
@@ -211,22 +208,23 @@ let controller = (function(budgetCtrl, UICtrl) {
 
     let ctrlDeleteItem = function(event) {
         var itemID, splitID, type, ID;
-
+    
         itemID =  event.target.parentNode.parentNode.parentNode.parentNode.id;
-        
+    
         if  (itemID) {
             // item with id, remove from the data
             splitID = itemID.split("-");
             type = splitID[0];
             ID = parseInt(splitID[1]);
-
+    
             // delete the item from the data structure
-            budgetCtrl.deleteItem(type, ID);
-
+            budgetCtrl.deleteItem(type === 'income' ? 'inc' : type, ID);
+    
             // remove the item from the UI
-            
+    
         }
     };
+    
     
 
     return {
