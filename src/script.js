@@ -100,7 +100,7 @@ let budgetController = (function() {
 
         getPercentages: function() {
             let allPercentage = data.allItems.exp.map(function(cur) {
-                return cur.getPercentage();
+                return cur.getPercentages();
             })
             return allPercentage;
         },
@@ -193,7 +193,7 @@ let UIcontroller = (function(){
             }
         },
 
-        displayPercentages: function() {
+        displayPercentages: function(percentages) {
             let fields = document.querySelectorAll(DOMstrings.expPercentageLabel)
 
             let nodeListForEach = function(list, callback) {
