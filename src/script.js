@@ -135,7 +135,8 @@ let UIcontroller = (function(){
         expensesValue: '.budget-expenses-value',
         percentegeValue: '.budget-expenses-percentage',
         container: '.container',
-        expPercentageLabel: '.item-percentage'
+        expPercentageLabel: '.item-percentage',
+        dateLabel: '.budget-title-month'
 
     };
     return {
@@ -209,6 +210,15 @@ let UIcontroller = (function(){
                     current.textContent = '---'
                 }
             })
+        },
+
+        displayMonth: function() {
+            var now, year;
+
+            now = new Date()
+            year = now.getFullYear()
+
+            document.querySelector(DOMstrings.dateLabel).textContent = year;
         },
 
         getDOMstrings:  () => {
@@ -298,6 +308,7 @@ let controller = (function(budgetCtrl, UICtrl) {
     return {
         init: () => {
             console.log('Application has started....');
+            UICtrl.displayMonth();
             UICtrl.displayBudget({
                 budget: 0,
                 totalInc: 0,
