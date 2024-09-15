@@ -138,8 +138,11 @@ let UIcontroller = (function(){
 
             document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
         },
-        
-        deletListItem: function() {},
+
+        deletListItem: function(selectorID) {
+            let el = document.getElementById(selectorID)
+            el.parentNode.removeChild(el)
+        },
 
         clearFields: function() {
             let fields, fieldArray;
