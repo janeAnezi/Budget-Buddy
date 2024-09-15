@@ -4,7 +4,7 @@ let budgetController = (function() {
         this.id = id;
         this.description = description;
         this.value = value;
-        this.percentage = -1
+        this.percentage = -1  // when something is not defined, we use -1
     };
     Expenses.prototype.calculatePercentage = function(totalIncome) {
         if (totalIncome > 0) {
@@ -12,6 +12,9 @@ let budgetController = (function() {
         } else {
             this.percentage = -1;
         }
+    };
+    Expenses.prototype.getPercentage = function() {
+        return this.percentage;
     };
     let Income = function(id, description, value) {
         this.id = id;
