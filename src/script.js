@@ -13,7 +13,7 @@ let budgetController = (function() {
             this.percentage = -1;
         }
     };
-    Expenses.prototype.getPercentage = function() {
+    Expenses.prototype.getPercentages = function() {
         return this.percentage;
     };
     let Income = function(id, description, value) {
@@ -93,7 +93,16 @@ let budgetController = (function() {
         },
 
         calculatePercentages: function() {
+            data.allItems.exp.forEach(function(cur) {
+                cur.calculatePercentage();
+            })
+        },
 
+        getPercentages: function() {
+            let allPercentage = data.allItems.exp.map(function(cur) {
+                return cur.getPercentage();
+            })
+            return allPercentage;
         },
         
         getBudget: function() {
