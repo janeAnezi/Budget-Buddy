@@ -199,6 +199,10 @@ let controller = (function(budgetCtrl, UICtrl) {
         UICtrl.displayBudget(budget);
     };
 
+    let updatePercentages = function() {
+
+    };
+
     let ctrlAddItem = () => {
         let input, newItem;
         input = UICtrl.getInput(); // get field adata
@@ -208,6 +212,7 @@ let controller = (function(budgetCtrl, UICtrl) {
             UICtrl.addListItem(newItem, input.type); // add item to the UI
             UICtrl.clearFields(); // clear fields
             updateBudget(); // calculate and update budget
+            updatePercentages(); // calculate and update percentages
         }
     };
 
@@ -230,6 +235,8 @@ let controller = (function(budgetCtrl, UICtrl) {
 
             // update and show new budget
             updateBudget()
+
+            updatePercentages(); // calculate and update percentages
     
         }
     };
