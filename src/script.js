@@ -4,6 +4,14 @@ let budgetController = (function() {
         this.id = id;
         this.description = description;
         this.value = value;
+        this.percentage = -1
+    };
+    Expenses.prototype.calculatePercentage = function(totalIncome) {
+        if (totalIncome > 0) {
+            this.percentage = Math.round((this.value / totalIncome) * 100);  
+        } else {
+            this.percentage = -1;
+        }
     };
     let Income = function(id, description, value) {
         this.id = id;
@@ -79,6 +87,10 @@ let budgetController = (function() {
             } else {
                 data.percentage = -1; // or any default value indicating no income
             }
+        },
+
+        calculatePercentages: function() {
+
         },
         
         getBudget: function() {
