@@ -226,6 +226,10 @@ let controller = (function(budgetCtrl, UICtrl) {
             budgetCtrl.deleteItem(type === 'income' ? 'inc' : type, ID);
     
             // remove the item from the UI
+            UICtrl.deletListItem(itemID)
+
+            // update and show new budget
+            updateBudget()
     
         }
     };
