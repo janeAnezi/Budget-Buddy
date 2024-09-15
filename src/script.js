@@ -127,10 +127,11 @@ let UIcontroller = (function(){
             if (type === 'inc') {
                 element = DOMstrings.incomeContainer;
                 html = '<div class="text-white item clearfix flex justify-between border p-2 mb-1.5" id="income-%id%"><div class="item-description">%description%</div><div class="right-0 clearfix flex ml-4"><div class="item-value">%value%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon class="text-green-600 ml-3" name="trash-outline"></ion-icon></button></div></div></div>';
-            } else if (type ===  'exp') {
+            } else if (type === 'exp') {
                 element = DOMstrings.expensesContainer;
-                html = '<div class="text-white item clearfix flex justify-between border p-2 mb-1.5" id="Expenses-%id%"><div class="item-description">%description%</div><div class="right-0 clearfix flex ml-4"><div class="item-value">%value%</div><div class="item-percentage px-2 ml-4 text-white bg-purple-500">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon class="text-red-600 ml-3" name="trash-outline"></ion-icon></button></div></div></div>';
+                html = '<div class="text-white item clearfix flex justify-between border p-2 mb-1.5" id="exp-%id%"><div class="item-description">%description%</div><div class="right-0 clearfix flex ml-4"><div class="item-value">%value%</div><div class="item-percentage px-2 ml-4 text-white bg-purple-500">21%</div><div class="item-delete"><button class="item-delete-btn"><ion-icon class="text-red-600 ml-3" name="trash-outline"></ion-icon></button></div></div></div>';
             }
+            
 
             newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%description%', obj.description);
