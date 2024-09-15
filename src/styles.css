@@ -32,4 +32,9 @@ body {
 .red-focus:focus {border: 1px solid #ff5049 !important;}
 
 
-  
+.item-delete-btn {
+    display: none;
+}
+.item:hover .item-delete-btn {
+    display: block;
+}
