@@ -230,6 +230,14 @@ let UIcontroller = (function(){
             document.querySelector(DOMstrings.dateLabel).textContent = currentMonthYear;
         },
 
+        changedType: function() {
+            let fields = document.querySelectorAll(
+                DOMstrings.inputType + ',' +
+                DOMstrings.inputDescription + ',' +
+                DOMstrings.inputValue
+            )
+        },
+
         getDOMstrings:  () => {
             return DOMstrings;
         }
@@ -250,6 +258,8 @@ let controller = (function(budgetCtrl, UICtrl) {
         });
 
         document.querySelector(DOM.container).addEventListener('click',ctrlDeleteItem);
+
+        document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType)
     };
     
     let updateBudget = function() {
