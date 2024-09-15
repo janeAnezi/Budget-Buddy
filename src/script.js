@@ -139,6 +139,24 @@ let UIcontroller = (function(){
         dateLabel: '.budget-title-month'
 
     };
+
+    let formatNumber = function(num, type) {
+        var numSplit, int, dec, type ;
+        
+        num = Math.abs(num)
+        num = num.toFixed(2);
+        numSplit = num.split('.')
+        int = numSplit[0];
+
+        
+    };
+
+    let nodeListForEach = function(list, callback) {
+        for (let i = 0; i < list.length; i++) {
+            callback(list[i], i);
+        }
+    }  
+
     return {
         getInput: function() {
             return {
