@@ -134,7 +134,8 @@ let UIcontroller = (function(){
         incomeValue: '.budget-income-value',
         expensesValue: '.budget-expenses-value',
         percentegeValue: '.budget-expenses-percentage',
-        container: '.container'
+        container: '.container',
+        expPercentageLabel: '.item-percentage'
 
     };
     return {
@@ -190,6 +191,24 @@ let UIcontroller = (function(){
             } else {
                 document.querySelector(DOMstrings.percentegeValue).textContent = "---";
             }
+        },
+
+        displayPercentages: function() {
+            let fields = document.querySelectorAll(DOMstrings.expPercentageLabel)
+
+            let nodeListForEach = function(list, callback) {
+                for (let i = 0; i < list.length; i++) {
+                    callback(list[i], i);
+                }
+            }
+
+            nodeListForEach(fields, function(current, index) {
+                if (percentages[index] > 0) {
+                    current.textContent = percentages[index]+ "%";
+                } else {
+                    current.textContent = '---'
+                }
+            })
         },
 
         getDOMstrings:  () => {
