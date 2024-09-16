@@ -255,6 +255,9 @@ let UIcontroller = (function(){
         },
 
         changedType: function() {
+
+            console.log('Type changed'); // to ensure it is triggered in the console
+
             let fields = document.querySelectorAll(
                 DOMstrings.inputType + ',' +
                 DOMstrings.inputDescription + ',' +
