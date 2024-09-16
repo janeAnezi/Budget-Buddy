@@ -29,8 +29,11 @@ body {
 
 .right { float:right;}
 .red {color: #ff5049 !important;}
-.red-focus:focus {border: 1px solid #ff5049 !important;}
+.red-focus {border: 2px solid #ff5049 !important;}
 
+input, select, textarea {
+    outline: none;
+}
 
 .item-delete-btn {
     display: none;
