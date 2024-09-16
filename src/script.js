@@ -260,6 +260,10 @@ let UIcontroller = (function(){
                 DOMstrings.inputDescription + ',' +
                 DOMstrings.inputValue
             )
+
+            nodeListForEach(fields, function(cur) {
+                cur.classList.toggle('red-focus');
+            })
         },
 
         getDOMstrings:  () => {
