@@ -839,6 +839,7 @@ body {
 
 .red-focus {
   border: 2px solid #ff5049 !important;
+  outline: none;
 }
 
 input, select, textarea {

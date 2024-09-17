@@ -29,7 +29,10 @@ body {
 
 .right { float:right;}
 .red {color: #ff5049 !important;}
-.red-focus {border: 2px solid #ff5049 !important;}
+.red-focus {
+    border: 2px solid #ff5049 !important;
+    outline: none;
+}
 
 input, select, textarea {
     outline: none;
