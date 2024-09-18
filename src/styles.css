@@ -35,7 +35,7 @@ body {
 }
 
 input, select, textarea {
-    outline: none;
+    outline: green;
 }
 
 .item-delete-btn {
