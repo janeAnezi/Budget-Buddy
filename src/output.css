@@ -838,12 +838,13 @@ body {
 }
 
 .red-focus {
-  border: 2px solid #ff5049 !important;
+  border: 1px solid #ff5049 !important;
   outline: none;
 }
 
 input, select, textarea {
-  outline: green;
+  outline: none;
+  border: 1px solid green;
 }
 
 .item-delete-btn {
