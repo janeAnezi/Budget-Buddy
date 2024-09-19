@@ -60,6 +60,8 @@ let budgetController = (function() {
             }
             dataType.push(newItem);
 
+            saveData();  // Save data to localStorage
+
             return newItem;
         },
         deleteItem: function(type, id) {
@@ -75,6 +77,7 @@ let budgetController = (function() {
                 console.error('Item with ID ' + id + ' not found in type ' + type);
             } else {
                 data.allItems[type].splice(index, 1);
+                saveData();  // Save data to localStorage
             }
         },
         
