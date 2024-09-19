@@ -375,7 +375,7 @@ let controller = (function(budgetCtrl, UICtrl) {
     const loadData = function() {
         const storedData = localStorage.getItem('budgetData');
         if (storedData) {
-            data = JSON.parse(storedData);
+            budgetCtrl.setData(JSON.parse(storedData));  // Use the setter to load data
         }
     };
     
