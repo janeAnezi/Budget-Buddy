@@ -43,11 +43,6 @@ let budgetController = (function() {
         
     };
 
-    const saveData = function() {
-        localStorage.setItem('budgetData', JSON.stringify(data));
-    };
-
-    
     return {
         addItem: function(type, des, val) {
             let newItem, ID;
@@ -65,8 +60,6 @@ let budgetController = (function() {
             }
             dataType.push(newItem);
 
-            saveData();  // Save data to localStorage
-
             return newItem;
         },
         deleteItem: function(type, id) {
@@ -82,7 +75,6 @@ let budgetController = (function() {
                 console.error('Item with ID ' + id + ' not found in type ' + type);
             } else {
                 data.allItems[type].splice(index, 1);
-                saveData();  // Save data to localStorage
             }
         },
         
@@ -124,16 +116,7 @@ let budgetController = (function() {
 
         testing: () => {
             console.log(data);
-        }, 
-
-        getData: function() {
-            return data;
-        },
-
-        setData: function(loadedData) {
-            data = loadedData;
         }
-
     };
 })();
 
@@ -372,18 +355,9 @@ let controller = (function(budgetCtrl, UICtrl) {
     
     
 
-    const loadData = function() {
-        const storedData = localStorage.getItem('budgetData');
-        if (storedData) {
-            budgetCtrl.setData(JSON.parse(storedData));  // Use the setter to load data
-        }
-    };
-    
-
     return {
         init: () => {
             console.log('Application has started....');
-            loadData();  // Load data from localStorage
             UICtrl.displayMonth();
             UICtrl.displayBudget({
                 budget: 0,
