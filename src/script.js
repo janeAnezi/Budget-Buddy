@@ -42,10 +42,12 @@ let budgetController = (function() {
         percentage: -1
         
     };
-    
+
     const saveData = function() {
         localStorage.setItem('budgetData', JSON.stringify(data));
     };
+
+    
     return {
         addItem: function(type, des, val) {
             let newItem, ID;
@@ -122,7 +124,16 @@ let budgetController = (function() {
 
         testing: () => {
             console.log(data);
+        }, 
+
+        getData: function() {
+            return data;
+        },
+
+        setData: function(loadedData) {
+            data = loadedData;
         }
+
     };
 })();
 
