@@ -353,6 +353,16 @@ let controller = (function(budgetCtrl, UICtrl) {
         }
     };
     
+    const saveData = function() {
+        localStorage.setItem('budgetData', JSON.stringify(data));
+    };
+
+    const loadData = function() {
+        const storedData = localStorage.getItem('budgetData');
+        if (storedData) {
+            data = JSON.parse(storedData);
+        }
+    };
     
 
     return {
