@@ -29,6 +29,19 @@ let budgetController = (function() {
         data.totals[type] = sum;
     };
 
+    // Save data to localStorage
+      let saveData = function() {
+        localStorage.setItem('budgetData', JSON.stringify(data));
+    };
+
+    // Load data from localStorage
+    let loadData = function() {
+        let storedData = JSON.parse(localStorage.getItem('budgetData'));
+        if (storedData) {
+            data = storedData;
+        }
+    };
+
     let data = {
         allItems: {
             exp: [],
