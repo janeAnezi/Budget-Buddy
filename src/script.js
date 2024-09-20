@@ -136,6 +136,13 @@ let budgetController = (function() {
             };
         },
 
+        getItems: function() {
+            return {
+                inc: data.allItems.inc,
+                exp: data.allItems.exp
+            };
+        },
+
         testing: () => {
             console.log(data);
         }
@@ -389,6 +396,9 @@ let controller = (function(budgetCtrl, UICtrl) {
             // If there is saved data, display it on the UI
             let initialBudget = budgetCtrl.getBudget();
             UICtrl.displayBudget(initialBudget);
+
+            // Get stored items (income and expenses)
+            let allItems = budgetCtrl.getItems();
 
             // Re-populate the UI with stored items
             data.allItems.inc.forEach(item => {
