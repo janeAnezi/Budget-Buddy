@@ -378,6 +378,10 @@ let controller = (function(budgetCtrl, UICtrl) {
     return {
         init: () => {
             console.log('Application has started....');
+
+            // Load stored data from localStorage
+            budgetCtrl.loadData();  // Call the loadData function here
+
             UICtrl.displayMonth();
             UICtrl.displayBudget({
                 budget: 0,
