@@ -97,6 +97,8 @@ let budgetController = (function() {
             }
 
         },
+
+        loadData: loadData,  // Expose loadData function
         
         calculateBudget: function() {
             // calculate total income and expenses
