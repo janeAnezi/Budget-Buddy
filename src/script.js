@@ -383,6 +383,20 @@ let controller = (function(budgetCtrl, UICtrl) {
             budgetCtrl.loadData();  // Call the loadData function here
 
             UICtrl.displayMonth();
+
+            // If there is saved data, display it on the UI
+            let initialBudget = budgetCtrl.getBudget();
+            UICtrl.displayBudget(initialBudget);
+
+            // Re-populate the UI with stored items
+            data.allItems.inc.forEach(item => {
+                UICtrl.addListItem(item, 'inc');
+            });
+
+            data.allItems.exp.forEach(item => {
+                UICtrl.addListItem(item, 'exp');
+            });
+
             UICtrl.displayBudget({
                 budget: 0,
                 totalInc: 0,
