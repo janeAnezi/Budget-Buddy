@@ -38,7 +38,13 @@ let budgetController = (function() {
     let loadData = function() {
         let storedData = JSON.parse(localStorage.getItem('budgetData'));
         if (storedData) {
+            // Reassign the data object
             data = storedData;
+            
+            // Reattach prototype methods to Expenses
+            data.allItems.exp.forEach(function(cur) {
+                Object.setPrototypeOf(cur, Expenses.prototype);
+            });
         }
     };
 
