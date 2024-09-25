@@ -46,6 +46,15 @@ let budgetController = (function() {
                 Object.setPrototypeOf(cur, Expenses.prototype);
             });
         }
+
+        // Load saved budget values if available
+        let storedBudgetValues = JSON.parse(localStorage.getItem('budgetValues'));
+        if (storedBudgetValues) {
+            data.budget = storedBudgetValues.budget;
+            data.totals.inc = storedBudgetValues.totalInc;
+            data.totals.exp = storedBudgetValues.totalExp;
+            data.percentage = storedBudgetValues.percentage;
+        }
     };
 
     let data = {
