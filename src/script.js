@@ -253,6 +253,9 @@ let UIcontroller = (function(){
             } else {
                 document.querySelector(DOMstrings.percentegeValue).textContent = "---";
             }
+
+            // Save budget values to localStorage
+            localStorage.setItem('budgetValues', JSON.stringify(obj));
         },
 
         displayPercentages: function(percentages) {
